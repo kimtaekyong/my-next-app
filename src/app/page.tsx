@@ -2,26 +2,9 @@
 export default function Main() {
   return (
     <>
-      {/* 공통 네비게이션 바 */}
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/create">Create</a>
-          </li>
-          <li>
-            <a href="/news">News</a>
-          </li>
-        </ul>
-      </nav>
-      <div className="text-center font-Pretendard text-white">
-        <h2 className="text-2xl font-bold">Welcome</h2>
-        <p className="text-xl">Hello, NextJS</p>
+      <div>
+        <h1 className="text-4xl font-bold">Web Main</h1>
+        <p>메인페이지입니다.</p>
       </div>
     </>
   );

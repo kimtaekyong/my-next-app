@@ -2,9 +2,9 @@
 export default function CreatePage() {
   return (
     <div>
-      <h1>Create Page</h1>
+      <h1 className="text-4xl font-bold">Create Page</h1>
       <p>생성 된 Creact 페이지 입니다.</p>
-      <a href="/detail">상세</a>
+      {/* <a href="/detail">상세</a> */}
     </div>
   );
 }
