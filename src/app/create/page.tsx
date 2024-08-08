@@ -1,3 +1,5 @@
+"use client"; // client component 전환 후 useEffect, useState, onSubmit 코드 사용 가능
+
 // Create 페이지의 주요 콘텐츠
 export default function CreatePage() {
   return (
