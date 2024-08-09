@@ -1,10 +1,10 @@
 // Read 페이지의 주요 콘텐츠
-export default async function Read(props: { params: { id: number } }) {
+export default async function Read(props: { params: { id: string } }) {
   const id = props.params.id;
-  const resp = await fetch(`http://localhost:9999/topics/${id}`);
+  const resp = await fetch(`http://localhost:9999/topics/${id}`, { cache: `no-store` });
   const topic = await resp.json();
 
-  console.log(topic);
+  console.log(id);
 
   return (
     <>

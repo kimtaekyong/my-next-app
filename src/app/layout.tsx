@@ -5,7 +5,7 @@ import "../styles/style.css";
 
 // 기본 레이아웃 컴포넌트
 export default async function RootLayout({ children }: { children: ReactNode }) {
-  const resp = await fetch("http://localhost:9999/topics/");
+  const resp = await fetch("http://localhost:9999/topics/", { cache: `no-store` });
   const topics = await resp.json();
 
   // 콘솔에 출력
@@ -18,8 +18,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           className="max-w-[1200px] h-[100vh] mx-auto flex items-center justify-center flex-col text-white text-center"
         >
           <div>
-            <ol className="flex">
-              {topics.map((topic: { body: string; id: number; title: string }) => {
+            <ol className="flex gap-x-2">
+              {topics.map((topic: { body: string; id: string; title: string }) => {
                 return (
                   <li key={topic.id}>
                     <Link className="text-xl" href={`/read/${topic.id}`}>
