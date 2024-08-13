@@ -8,6 +8,9 @@ const nextConfig = {
       },
     ];
   },
+  experimental: {
+    windowHistorySupport: true,
+  },
 };
 
 export default nextConfig;

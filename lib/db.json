@@ -2,18 +2,8 @@
   "topics": [
     {
       "id": "1",
-      "title": "HTML",
-      "body": "HTML is .."
-    },
-    {
-      "id": "2",
-      "title": "CSS",
-      "body": "CSS is .."
-    },
-    {
-      "id": "3",
-      "title": "JAVASCRIPT",
-      "body": "JAVASCRIPT is .."
+      "title": "EEE",
+      "body": "CSS"
     }
   ]
 }
