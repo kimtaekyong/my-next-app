@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 export default function Update(props: { params: { id: any } }) {
   const router = useRouter();
   const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  // const [body, setBody] = useState("");
+  const [contant, setContant] = useState("");
   const id = props.params.id;
 
   // 데이터 가져오기 함수
@@ -14,7 +15,8 @@ export default function Update(props: { params: { id: any } }) {
     const resp = await fetch(`http://localhost:9999/topics/${id}`);
     const topic = await resp.json();
     setTitle(topic.title);
-    setBody(topic.body);
+    // setBody(topic.body);
+    setContant(topic.contant);
   }
 
   // 컴포넌트 마운트 시 데이터 가져오기
@@ -29,7 +31,8 @@ export default function Update(props: { params: { id: any } }) {
     // 폼 요소에서 입력값 추출
     const formData = new FormData(evt.currentTarget);
     const updatedTitle = formData.get("title") as string;
-    const updatedBody = formData.get("body") as string;
+    // const updatedBody = formData.get("body") as string;
+    const updateContant = formData.get("contant") as string;
 
     // 서버에 PATCH 요청 보내기
     const resp = await fetch(`http://localhost:9999/topics/${id}`, {
@@ -37,7 +40,7 @@ export default function Update(props: { params: { id: any } }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title: updatedTitle, body: updatedBody }), // JSON 객체로 변환
+      body: JSON.stringify({ title: updatedTitle, contant: updateContant }), // JSON 객체로 변환
     });
     const topic = await resp.json();
 
@@ -47,7 +50,7 @@ export default function Update(props: { params: { id: any } }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ width: "480px" }}>
+    <form onSubmit={handleSubmit}>
       <h2 className="text-2xl font-bold mb-4">텍스트를 수정해주세요.</h2>
       <p>
         <input
@@ -70,8 +73,8 @@ export default function Update(props: { params: { id: any } }) {
       <p>
         <textarea
           name="body"
-          value={body} // 현재 본문 값을 텍스트 영역에 설정합니다.
-          onChange={(e) => setBody(e.target.value)} // 입력값 변경 시 상태 업데이트
+          value={contant} // 현재 본문 값을 텍스트 영역에 설정합니다.
+          onChange={(e) => setContant(e.target.value)} // 입력값 변경 시 상태 업데이트
           style={{
             width: "100%", // 텍스트 영역의 너비를 100%로 설정하여 폼의 너비에 맞춥니다.
             height: "200px", // 텍스트 영역의 높이를 200px로 설정합니다.

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 export function Control() {
+  const router = useRouter();
   const params = useParams();
   const pathname = usePathname(); // 현재 경로를 가져옵니다.
   const id = params.id;
@@ -36,7 +37,18 @@ export function Control() {
             <Link href={`/update/${id}`}>수정</Link>
           </li>
           <li>
-            <input type="button" value="삭제" />
+            <button
+              onClick={async () => {
+                const resp = await fetch(`http://localhost:9999/topics/${id}`, {
+                  method: "delete",
+                });
+                await resp.json();
+                router.push("/");
+                router.refresh();
+              }}
+            >
+              삭제
+            </button>
           </li>
         </>
       )}

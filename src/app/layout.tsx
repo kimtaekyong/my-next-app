@@ -1,10 +1,8 @@
 import { ReactNode } from "react";
-import Link from "next/link";
 import "../styles/globals.css";
 import "../styles/style.css";
 import { Control } from "../components/Control";
 import { fetchTopics } from "@/data/DataControl";
-import TopicList from "@/components/TopicList";
 
 export const metadata = {
   title: "Web tutorial",
@@ -23,10 +21,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           id="wrap"
           className="max-w-[1200px] h-[100vh] mx-auto flex items-center justify-center flex-col text-white text-center"
         >
-          <TopicList topics={topics} />
-          {/* {<TopicList topics={topics} />는 React 컴포넌트를 사용하여 topics라는 프로퍼티를 TopicList라는 자식 컴포넌트에 전달하는 코드입니다.
-          여기서 topics는 부모 컴포넌트에서 가져온 데이터로, TopicList 컴포넌트가 이를 사용하여 UI를 렌더링합니다.} */}
-          <main className="py-2 mb-5">{children}</main>
+          <main className="py-2 mb-5 w-full">{children}</main>
           <Control />
         </div>
       </body>
