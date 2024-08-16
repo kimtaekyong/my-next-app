@@ -72,7 +72,7 @@ export default function Update(props: { params: { id: any } }) {
       </p>
       <p>
         <textarea
-          name="body"
+          name="contant"
           value={contant} // 현재 본문 값을 텍스트 영역에 설정합니다.
           onChange={(e) => setContant(e.target.value)} // 입력값 변경 시 상태 업데이트
           style={{

@@ -11,8 +11,8 @@ export default function Create() {
         evt.preventDefault();
 
         const form = evt.target as HTMLFormElement;
-        const { Title, Name, deadName, contant } = form.elements as any;
-        const createTitle = (Title as HTMLInputElement).value;
+        const { title, Name, deadName, contant } = form.elements as any;
+        const createTitle = (title as HTMLInputElement).value;
         const createName = (Name as HTMLInputElement).value;
         const createdeadName = (deadName as HTMLInputElement).value;
         const createContent = (contant as HTMLTextAreaElement).value;
@@ -38,7 +38,7 @@ export default function Create() {
           },
           body: JSON.stringify({
             id: newId,
-            Title: createTitle,
+            title: createTitle,
             Name: createName,
             deadName: createdeadName,
             contant: createContent,
@@ -97,7 +97,7 @@ export default function Create() {
       <p>
         <input
           type="text"
-          name="Title"
+          name="title"
           placeholder="제목을 입력해주세요."
           className="font-bold mb-2 text-base"
           style={{

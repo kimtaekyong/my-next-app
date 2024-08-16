@@ -7,8 +7,8 @@ import { usePathname, useRouter } from "next/navigation"; // 현재 경로를 �
 
 // Topic 인터페이스 정의
 interface Topic {
+  title: string;
   created_at: string | number | Date;
-  Title: string;
   contant: string;
   id: string;
   deadName: string;
@@ -62,7 +62,7 @@ const TopicList: React.FC<TopicListProps> = ({ topics }) => {
               >
                 <span className="flex justify-between">
                   <div className="flex gap-x-5">
-                    <p className="font-bold text-xl">{topic.Title}</p>
+                    <p className="font-bold text-xl">{topic.title}</p>
                     <p className="text-xl">{topic.Name}</p>
                   </div>
                   <div>{new Date(topic.created_at).toLocaleString()}</div>
